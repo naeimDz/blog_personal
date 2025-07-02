@@ -7,7 +7,7 @@ import { categories, statuses} from './utils/constants';
 import QuickStats from './components/QuickStats';
 import PostCard from './components/PostCard';
 import AddPostForm from './components/AddPostForm';
-const PostsShowcase = () => {
+const Posts = () => {
   const [posts, setPosts] = useState<Post[]>(dummyPosts);
 
 
@@ -185,4 +185,4 @@ const PostsShowcase = () => {
   );
 };
 
-export default PostsShowcase;
+export default Posts;
