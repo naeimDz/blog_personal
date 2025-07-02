@@ -1,6 +1,6 @@
 import{ useState } from 'react';
-import { Search, Plus, Grid, List, BookOpen,X, Code, } from 'lucide-react';
-import { Post, PostStatus, Priority } from "./types/posts";
+import { Search, Plus, Grid, List, BookOpen, Code, } from 'lucide-react';
+import { Post, PostStatus } from "./types/posts";
 import { dummyPosts } from './data/dummyPosts';
 import Footer from './components/Footer';
 import { categories, statuses} from './utils/constants';
