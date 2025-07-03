@@ -1,4 +1,4 @@
-import{ lazy, Suspense, useMemo, useState } from 'react';
+import{ lazy, Suspense, useEffect, useMemo, useState } from 'react';
 import { Search, Plus, Grid, List, BookOpen, Code, Star, Image, Clock, Calendar} from 'lucide-react';
 import { Post, PostStatus } from "./types/posts";
 import { dummyPosts } from './data/dummyPosts';
@@ -10,6 +10,7 @@ import LoginForm from './components/LoginForm';
 import DownloadPostsButton from './components/DownloadPostsButton';
 import QuickStatsSkeleton from './components/QuickStatsSkeleton';
 
+
 const QuickStats = lazy(() => import('./components/QuickStats'));
 const Footer = lazy(() => import('./components/Footer'));
 
@@ -18,13 +19,33 @@ const Posts = () => {
   const { user,logout } = useAuth();
   const [posts, setPosts] = useState<Post[]>(dummyPosts);
   const featuredPost = posts[0];
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+
+useEffect(() => {
+  setLoading(true);
+  fetch('/api/posts')
+    .then(res => {
+      if (!res.ok) throw new Error("Failed to fetch");
+      return res.json();
+    })
+    .then(data => {
+      setPosts(data); 
+    })
+    .catch(err => {
+      setError(err.message);
+    })
+    .finally(() => setLoading(false));
+}, []);
+
+
 
   const [viewMode, setViewMode] = useState('grid');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedStatus, setSelectedStatus] = useState('all');
   const [showAddForm, setShowAddForm] = useState(false);
-
 
 const filteredPosts = useMemo(() => {
   return posts.filter(post => {
@@ -69,6 +90,7 @@ const filteredPosts = useMemo(() => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Header */}
+
       <header className="bg-white/80 backdrop-blur-lg shadow-sm border-b sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between mb-4">
@@ -81,7 +103,7 @@ const filteredPosts = useMemo(() => {
                 <p className="text-gray-600">Professional React Application Showcase</p>
               </div>
             </div>
-            
+
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-3 text-sm text-gray-600 bg-green-50 px-3 py-2 rounded-full">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
