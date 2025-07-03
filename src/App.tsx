@@ -25,7 +25,7 @@ const Posts = () => {
 
 useEffect(() => {
   setLoading(true);
-  fetch('/api/posts')
+  fetch('/api/notion')
     .then(res => {
       if (!res.ok) throw new Error("Failed to fetch");
       console.log("Fetched posts from API",res);
