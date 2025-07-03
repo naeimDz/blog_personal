@@ -28,6 +28,7 @@ useEffect(() => {
   fetch('/api/posts')
     .then(res => {
       if (!res.ok) throw new Error("Failed to fetch");
+      console.log("Fetched posts from API",res);
       return res.json();
     })
     .then(data => {
