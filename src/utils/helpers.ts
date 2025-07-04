@@ -16,5 +16,5 @@ export const formatDate = (date: Date | string): string => {
 };
 
 export const generateThumbnail = (title: string): string => {
-  return `https://via.placeholder.com/300x200/6366F1/ffffff?text=${encodeURIComponent(title.slice(0, 10))}`;
+  return `https://placehold.co/600x400/6366F1/ffffff?text=${encodeURIComponent(title.slice(0, 10))}`;
 };

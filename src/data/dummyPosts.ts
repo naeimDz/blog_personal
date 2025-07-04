@@ -16,7 +16,7 @@ export const dummyPosts: Post[] = [
       priority: "high",
       notes: "Excellent resource for current React optimization project",
       favicon: "⚛️",
-      thumbnail: "https://via.placeholder.com/300x200/61DAFB/000000?text=React+Patterns"
+      thumbnail: "https://placehold.co/600x400/61DAFB/000000?text=React+Patterns"
     },
     {
       id: 2,
@@ -32,7 +32,7 @@ export const dummyPosts: Post[] = [
       priority: "high",
       notes: "Critical for upcoming system redesign",
       favicon: "🏗️",
-      thumbnail: "https://via.placeholder.com/300x200/0EA5E9/ffffff?text=Microservices"
+      thumbnail: "https://placehold.co/600x400/0EA5E9/ffffff?text=Microservices"
     },
     {
       id: 3,
@@ -48,7 +48,7 @@ export const dummyPosts: Post[] = [
       priority: "medium",
       notes: "Important for design team collaboration",
       favicon: "🎨",
-      thumbnail: "https://via.placeholder.com/300x200/8B5CF6/ffffff?text=Design+Systems"
+      thumbnail: "https://placehold.co/600x400/8B5CF6/ffffff?text=Design+Systems"
     },
     {
       id: 4,
@@ -65,7 +65,7 @@ export const dummyPosts: Post[] = [
       priority: "high",
       notes: "Must-read for type-safe development",
       favicon: "📘",
-      thumbnail: "https://via.placeholder.com/300x200/3178C6/ffffff?text=TypeScript"
+      thumbnail: "https://placehold.co/600x400/3178C6/ffffff?text=TypeScript"
     },
     {
       id: 5,
@@ -81,7 +81,7 @@ export const dummyPosts: Post[] = [
       priority: "medium",
       notes: "Great for improving CSS skills",
       favicon: "🎯",
-      thumbnail: "https://via.placeholder.com/300x200/06B6D4/ffffff?text=Modern+CSS"
+      thumbnail: "https://placehold.co/600x400/06B6D4/ffffff?text=Modern+CSS"
     },
     {
       id: 6,
@@ -97,6 +97,6 @@ export const dummyPosts: Post[] = [
       priority: "high",
       notes: "",
       favicon: "🟢",
-      thumbnail: "https://via.placeholder.com/300x200/339933/ffffff?text=Node.js"
+      thumbnail: "https://placehold.co/600x400/339933/ffffff?text=Node.js"
     }
 ];

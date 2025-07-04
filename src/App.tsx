@@ -1,4 +1,4 @@
-import{ lazy, Suspense, useEffect, useMemo, useState } from 'react';
+import{ lazy, Suspense, useMemo, useState } from 'react';
 import { Search, Plus, Grid, List, BookOpen, Code, Star, Image, Clock, Calendar} from 'lucide-react';
 import { Post, PostStatus } from "./types/posts";
 import { dummyPosts } from './data/dummyPosts';
@@ -10,7 +10,6 @@ import LoginForm from './components/LoginForm';
 import DownloadPostsButton from './components/DownloadPostsButton';
 import QuickStatsSkeleton from './components/QuickStatsSkeleton';
 
-
 const QuickStats = lazy(() => import('./components/QuickStats'));
 const Footer = lazy(() => import('./components/Footer'));
 
@@ -19,28 +18,6 @@ const Posts = () => {
   const { user,logout } = useAuth();
   const [posts, setPosts] = useState<Post[]>(dummyPosts);
   const featuredPost = posts[0];
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-
-useEffect(() => {
-  setLoading(true);
-  fetch('/api/notion')
-    .then(res => {
-      if (!res.ok) throw new Error("Failed to fetch");
-      console.log("Fetched posts from API",res);
-      return res.json();
-    })
-    .then(data => {
-      setPosts(data); 
-    })
-    .catch(err => {
-      setError(err.message);
-    })
-    .finally(() => setLoading(false));
-}, []);
-
-
 
   const [viewMode, setViewMode] = useState('grid');
   const [searchTerm, setSearchTerm] = useState('');
@@ -59,7 +36,6 @@ const filteredPosts = useMemo(() => {
     return matchesSearch && matchesCategory && matchesStatus;
   });
 }, [posts, searchTerm, selectedCategory, selectedStatus]);
-
 
   const handleAddPost = (newPost: Omit<Post, 'id'>) => {
       const post: Post = {

@@ -42,7 +42,7 @@ const AddPostForm: React.FC<AddPostFormProps> = ({ onAddPost,onClose }) => {
         readingTime: Math.floor(Math.random() * 20) + 5,
         addedDate: new Date().toISOString().split('T')[0],
         liked: false,
-        thumbnail: `https://via.placeholder.com/300x200/6366F1/ffffff?text=${encodeURIComponent(newPost.title.slice(0, 10))}`,
+        thumbnail: `https://placehold.co/600x400/6366F1/ffffff?text=${encodeURIComponent(newPost.title.slice(0, 10))}`,
         favicon: '🔖',
         priority: newPost.priority as Priority,
         notes: '',

@@ -4,7 +4,6 @@ import { Post, PostStatus, Priority } from "../types/posts";
 
 export function mapNotionPageToPost(page: any): Post {
   const props = page.properties;
-
   return {
     id: page.id,
     title: props.Title?.title?.[0]?.plain_text ?? "Untitled",
