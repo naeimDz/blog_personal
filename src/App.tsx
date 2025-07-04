@@ -1,3 +1,4 @@
+// path: src/app.tsx
 import{ lazy, Suspense, useMemo, useState } from 'react';
 import { Search, Plus, Grid, List, BookOpen, Code, Star, Image, Clock, Calendar} from 'lucide-react';
 import { Post, PostStatus } from "./types/posts";
